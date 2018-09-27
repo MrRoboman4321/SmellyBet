@@ -1,0 +1,26 @@
+{
+  "name": "stinkybets",
+  "version": "0.0.1",
+  "description": "SaltyBet, but for FRC",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrRoboman4321/StinkyBets.git"
+  },
+  "author": "Ronoman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrRoboman4321/StinkyBets/issues"
+  },
+  "homepage": "https://github.com/MrRoboman4321/StinkyBets#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.17",
+    "passport": "^0.4.0",
+    "passport-google": "^0.3.0",
+    "passport-twitch": "^1.0.3"
+  }
+}
