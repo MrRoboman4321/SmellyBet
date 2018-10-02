@@ -1,0 +1,6 @@
+{
+    "host": "ronoman.dyn.wpi.edu",
+    "devURL": "http://ronoman.dyn.wpi.edu:1983",
+    "env": "development",
+    "dbURI": "mongodb://localhost/xpressLocalAuth"
+}

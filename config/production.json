@@ -1,0 +1,6 @@
+{
+    "host": "localhost",
+    "devURL": "http://localhost:1983",
+    "env": "production",
+    "dbURL": "mongodb://localhost/xpressLocalAuth"
+}
