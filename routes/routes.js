@@ -2,6 +2,7 @@ const User = require('../models/user-model');
 
 const express = require('express');
 const passport = require('passport');
+const path = require('path');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -9,6 +10,10 @@ router.get('/', (req, res) => {
 });
 
 //----- Authorization Routes -----
+router.get('/login', (req, res) => {
+    res.sendFile(path.resolve("./public/login.html"));
+});
+
 router.get('/auth/google', passport.authenticate('google', {
     scope: ['profile']
 }));
@@ -63,7 +68,7 @@ function isLoggedIn(req, res, next) {
         next();
     } else {
         req.session.redirectTo = req.path;
-        res.redirect('/auth/google');
+        res.redirect('/login');
     }
 }
 //-------------------------------------
