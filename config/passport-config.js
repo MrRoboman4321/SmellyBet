@@ -35,6 +35,7 @@ passport.use(
                 new User({
                     username: profile.displayName,
                     googleId: profile.id,
+                    balance: 100,
                     userLevel: 0
                 }).save().then((newUser) => {
                     done(null, newUser);

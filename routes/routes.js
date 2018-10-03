@@ -42,7 +42,7 @@ router.get('/updateEli', [isLoggedIn, isAdmin], (req, res) => {
 });
 
 router.get('/admin', [isLoggedIn, isAdmin], (req, res) => {
-    res.sendFile(path.resolve("./static/html/admin.html"))
+    res.sendFile(path.resolve("./static/html/admin.html"));
 });
 //----------------------
 

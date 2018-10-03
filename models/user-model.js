@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: String,
     googleId: String,
+    balance: Number,
     userLevel: Number
 });
 
