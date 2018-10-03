@@ -35,7 +35,7 @@ router.get('/protected', isLoggedIn, (req, res) => {
 });
 
 router.get('/updateEli', [isLoggedIn, isAdmin], (req, res) => {
-    User.findOneAndUpdate({username: "Eli Benevedes"}, {userLevel: 1}, (err, doc) => {
+    User.findOneAndUpdate({username: "Rose Kirby"}, {userLevel: 1}, (err, doc) => {
         if (err) return res.send(500, { error: err });
         return res.send("Elevated Eli.");
     });
