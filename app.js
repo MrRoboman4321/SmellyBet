@@ -55,6 +55,7 @@ app.use(logger('dev'));
 app.use(bParser.json());
 app.use(bParser.urlencoded({extended: true}));
 
+app.use(express.static("static"));
 app.use('/', router);
 
 app.listen(port);
