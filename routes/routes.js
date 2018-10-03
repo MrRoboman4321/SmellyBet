@@ -5,13 +5,15 @@ const passport = require('passport');
 const path = require('path');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send("Hello, world!");
+router.get('/users', isLoggedIn, (req, res) => {
+    User.find({}, (err, users) => {
+        res.json(users);
+    });
 });
 
 //----- Authorization Routes -----
 router.get('/login', (req, res) => {
-    res.sendFile(path.resolve("./public/login.html"));
+    res.sendFile(path.resolve("./public/html/login.html"));
 });
 
 router.get('/auth/google', passport.authenticate('google', {
