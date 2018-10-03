@@ -13,7 +13,7 @@ router.get('/users', isLoggedIn, (req, res) => {
 
 //----- Authorization Routes -----
 router.get('/login', (req, res) => {
-    res.sendFile(path.resolve("./public/html/login.html"));
+    res.sendFile(path.resolve("./static/html/login.html"));
 });
 
 router.get('/auth/google', passport.authenticate('google', {
@@ -35,10 +35,9 @@ router.get('/protected', isLoggedIn, (req, res) => {
 });
 
 router.get('/updateEli', [isLoggedIn, isAdmin], (req, res) => {
-    User.findOneAndUpdate({username: "Rose Kirby"}, {userLevel: 1}, (err, doc) => {
+    User.findOneAndUpdate({username: "Eli Benevedes"}, {userLevel: 1}, (err, doc) => {
         if (err) return res.send(500, { error: err });
-        console.log(doc);
-        return res.send("succesfully saved");
+        return res.send("Elevated Eli.");
     });
 });
 
