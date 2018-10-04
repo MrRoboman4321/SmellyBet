@@ -1,6 +1,10 @@
 //----- Authentication Middleware -----
 function isAdmin(req, res, next) {
-    if(req.user.userLevel >= 1) {
+    if(!req.user) {
+        req.session.redirectTo = req.path;
+        res.redirect('/auth/login');
+    }
+    else if(req.user.userLevel >= 1) {
         next();
     } else {
         res.status(403);

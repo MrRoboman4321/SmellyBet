@@ -1,7 +1,6 @@
 const passportConfig = require('./config/passport-config');
 const User = require('./models/user-model.js');
 
-
 const publicRouter = require('./routes/public-routes');
 const apiRouter = require('./routes/api-routes');
 const authRouter = require('./routes/auth-routes');

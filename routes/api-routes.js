@@ -10,10 +10,17 @@ router.get('/accounts/users', auth.isAdmin, (req, res) => {
     });
 });
 
+router.get('/accounts/users/:user', auth.isAdmin, (req, res) => {
+    var user = req.param.user;
+    User.find({username: user}, (err, users) => {
+        res.json(users[0]);
+    });
+});
+
 //Getting/putting user is by
 router.put('/accounts/users/:user', auth.isAdmin, (req, res) => {
     var user = req.param.user;
-    User.find()
+    //User.find()
 });
 
 module.exports = router;

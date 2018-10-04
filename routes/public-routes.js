@@ -12,14 +12,14 @@ router.get('/protected', auth.isLoggedIn, (req, res) => {
     res.send("You are " + req.user.username + ".");
 });
 
-router.get('/updateEli', [auth.isLoggedIn, auth.isAdmin], (req, res) => {
-    User.findOneAndUpdate({username: "Eli Benevedes"}, {userLevel: 1}, (err, doc) => {
+router.get('/updateEli', auth.isAdmin, (req, res) => {
+    User.findOneAndUpdate({username: "Rose Kirby"}, {userLevel: 1}, (err, doc) => {
         if (err) return res.send(500, { error: err });
         return res.send("Elevated Eli.");
     });
 });
 
-router.get('/admin', [auth.isLoggedIn, auth.isAdmin], (req, res) => {
+router.get('/admin', auth.isAdmin, (req, res) => {
     res.sendFile(path.resolve("./static/html/admin.html"));
 });
 //----------------------
