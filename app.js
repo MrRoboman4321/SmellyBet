@@ -1,6 +1,10 @@
 const passportConfig = require('./config/passport-config');
-const router = require('./routes/routes');
 const User = require('./models/user-model.js');
+
+
+const publicRouter = require('./routes/public-routes');
+const apiRouter = require('./routes/api-routes');
+const authRouter = require('./routes/auth-routes');
 
 const cookieSession = require('cookie-session');
 const bParser = require('body-parser');
@@ -56,7 +60,10 @@ app.use(bParser.json());
 app.use(bParser.urlencoded({extended: true}));
 
 app.use(express.static("static"));
-app.use('/', router);
+
+app.use('/api', apiRouter);
+app.use('/auth', authRouter);
+app.use('/', publicRouter); //KEEP LAST
 
 app.listen(port);
 
