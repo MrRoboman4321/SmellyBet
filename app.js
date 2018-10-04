@@ -6,6 +6,8 @@ const publicRouter = require('./routes/public-routes');
 const apiRouter = require('./routes/api-routes');
 const authRouter = require('./routes/auth-routes');
 
+const rateLimit = require('express-rate-limit');
+
 const cookieSession = require('cookie-session');
 const bParser = require('body-parser');
 const passport = require('passport');
@@ -61,7 +63,12 @@ app.use(bParser.urlencoded({extended: true}));
 
 app.use(express.static("static"));
 
-app.use('/api', apiRouter);
+const limiter = rateLimit({
+  windowMs: 1000, // 1 second
+  max: 1 // limit each IP to 1 request per windowMs
+});
+
+app.use('/api', [apiRouter, limiter]);
 app.use('/auth', authRouter);
 app.use('/', publicRouter); //KEEP LAST
 
